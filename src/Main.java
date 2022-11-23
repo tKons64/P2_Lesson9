@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public Main() {
@@ -65,6 +63,39 @@ public class Main {
         addValueInTempList(tempList, "str6", 6);
         //addValueInTempList(tempList, "str11", 6);
         System.out.println(tempList);
+
+        System.out.println();
+        System.out.println("Урок 9. Домашнее задание №1. Блок 2");
+
+        Map<String, List<Integer>> originaList = new HashMap<>();
+        while (originaList.size() < 5) {
+            List<Integer> tempListInteger = new ArrayList<>();
+            while (tempListInteger.size() < 3) {
+                tempListInteger.add((int)(Math.random() * 1000));
+            }
+            originaList.put("string" + (int) (Math.random() * 10), tempListInteger);
+        }
+        System.out.println(originaList);
+
+        Map<String, Integer> convertedList = new HashMap<>();
+        for (String s : originaList.keySet()) {
+            int sum = 0;
+            List<Integer> tempListInteger = originaList.get(s);
+            for (Integer value : tempListInteger) {
+                sum = sum + value;
+            }
+            convertedList.put(s, sum);
+        }
+        System.out.println(convertedList);
+
+        System.out.println();
+        System.out.println("Урок 9. Домашнее задание №2. Блок 2");
+
+        LinkedHashMap<Integer, String> tempLinkedList = new LinkedHashMap<>();
+        for (int i = 0; i < 10; i++) {
+            tempLinkedList.put(i+1, "string" + (int) (Math.random() * 1000));
+        }
+        System.out.println(tempLinkedList);
 
     }
 
