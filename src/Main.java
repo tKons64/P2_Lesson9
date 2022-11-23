@@ -54,8 +54,27 @@ public class Main {
         borch.calculateRecipePrice();
         System.out.println(borch);
 
+        System.out.println();
+        System.out.println("Урок 9. Домашнее задание №3. Блок 1");
+
+        HashMap<String, Integer> tempList = new HashMap<>();
+        while (tempList.size() < 10) {
+            tempList.put("str" + (int) (Math.random() * 10), (int) (Math.random() * 10));
+        }
+        System.out.println(tempList);
+        addValueInTempList(tempList, "str6", 6);
+        //addValueInTempList(tempList, "str11", 6);
+        System.out.println(tempList);
+
     }
 
+    public static void addValueInTempList(HashMap<String, Integer> list, String key, Integer value) {
+        if (list.get(key) == value) {
+            throw new RuntimeException("В списке уже есть такое же значение по заданному ключю!");
+        } else {
+            list.put(key, value);
+        }
+    }
 
     public static void addProduct(Set<Product> listOfProducts, Product product) {
 
