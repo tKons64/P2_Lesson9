@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public Main() {
@@ -6,9 +8,17 @@ public class Main {
 
     public static void main(String[] args) {
 
+//        System.out.println();
+//        System.out.println("Урок 8. Домашнее задание №1");
+
+        Product apples = new Product("Яблоки", 99, 2);
+        Product tomatoes = new Product("Помидоры", 100, 1);
+        Product bananas = new Product("Бананы", 60, 1);
+        Product apples2 = new Product("Яблоки", 99, 2);
+
         // Урок 9. Домашние задания
         System.out.println();
-        System.out.println("Урок 9. Домашнее задание №1. Блок 2");
+        System.out.println("Урок 9. Домашнее задание №1. Блок 1");
 
         HashMap<String, String> phoneReference = new HashMap<>();
         phoneReference.put("Петров", "+1");
@@ -34,6 +44,41 @@ public class Main {
 
         System.out.println(phoneReference.values());
 
+        System.out.println();
+        System.out.println("Урок 9. Домашнее задание №2. Блок 1");
 
+        Recipe borch = new Recipe("Борщ");
+        borch.addProduct(apples, apples.getQuantity());
+        borch.addProduct(tomatoes, tomatoes.getQuantity());
+        borch.addProduct(bananas, bananas.getQuantity());
+        borch.calculateRecipePrice();
+        System.out.println(borch);
+
+    }
+
+
+    public static void addProduct(Set<Product> listOfProducts, Product product) {
+
+        if (!listOfProducts.add(product)) {
+            throw new RuntimeException("Продукт с таким именнем уже есть в списке!");
+        }
+
+    }
+
+    public static void addRecipe(Set<Recipe> listOfRecipes, Recipe recipe) {
+        if (!listOfRecipes.add(recipe)) {
+            throw new RuntimeException("Рецепт с таким именнем уже есть в списке!");
+        }
+    }
+
+    public static void delProduct(Set<Product> listOfProducts, Product product) {
+
+        if (listOfProducts.remove(product)) {
+            System.out.println("Продукт - /*" + product.getName() + "*/ удален из списка покупок");
+        }
+    }
+
+    public static void markPurchase(Product product) {
+        product.setPurchased(true);
     }
 }
